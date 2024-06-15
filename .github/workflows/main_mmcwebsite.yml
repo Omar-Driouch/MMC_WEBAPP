@@ -13,6 +13,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Verify repository structure
+        run: ls -la
+
       - name: Set up Node.js version
         uses: actions/setup-node@v3
         with:
@@ -23,8 +26,9 @@ jobs:
           npm install
           npm run build --if-present
           npm run test --if-present
+
       - name: Zip artifact for deployment
-        run: zip release.zip ./dist/* -r
+        run: zip -r release.zip ./dist/*
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -47,8 +51,10 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
+
       - name: List the Package
-        run: ls -la /home/runner/work/MMC_WEBAPP/MMC_WEBAPP
+        run: ls -la
+
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
