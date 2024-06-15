@@ -1,0 +1,54 @@
+.middle {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .bar {
+    width: 20px;
+    height: 70px;
+    display: inline-block;
+    margin: 0 4px;
+    transform-origin: bottom center;
+    /* border-top-right-radius: 20px; */
+    /* border-top-left-radius: 20px; */
+    animation: loader 1.2s linear infinite;
+}
+
+.bar1 {
+    animation-delay: 0.1s;
+    box-shadow: 5px 10px 20px inset #ffb703;
+    background:#ffb703;
+}
+.bar2 {
+    animation-delay: 0.2s;
+    background:#F35224;
+    box-shadow: 5px 10px 20px inset #F35224;
+}
+.bar3 {
+    animation-delay: 0.3s;
+    background: #05A6F0;
+    box-shadow: 5px 10px 20px inset #05A6F0;
+}
+.bar4 {
+    animation-delay: 0.4s;
+    background: #81BC06;
+    box-shadow: 5px 10px 20px inset #81BC06;
+  }
+  @keyframes loader {
+    0% {
+      transform: scaleY(0.1);
+      /* background: transparent; Change background to transparent */
+    }
+    50% {
+      transform: scaleY(1);
+      /* background: rgba(255, 183, 3); Change background to a shade of red */
+    }
+    100% {
+      transform: scaleY(0.1);
+      /* background: transparent; Change background to transparent */
+    }
+  }
+  

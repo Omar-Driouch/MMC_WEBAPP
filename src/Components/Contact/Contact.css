@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", sans-serif;
+}
+
+:root{
+    --colore:#FFB703
+}
+
+.ContactPage{
+    display: block;
+}
+
+.contactInfo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.contactInfoCards{
+    box-shadow: 0 0 4px rgba(126, 126, 126, 0.11);
+    margin: 10px 15px;
+    width: 340px;
+    padding: 10px;
+    display: flex;
+    transition: all .3s;
+}
+
+.contactInfoCardsLogoDiv{
+    height: fit-content;
+    padding: 1px;
+    margin: 10px;
+    border-radius: 50%;
+    border: 1px dashed  var(--colore) ;
+    transition: all .3s;
+}
+
+.contactInfoCardsLogo{
+    /* padding: 8px 9px 2px; */
+    padding: 10px;
+    font-size: 40px;
+    color: var(--colore);
+    transition: all .3s;
+}
+
+.contactInfoCards:hover .contactInfoCardsLogoDiv{
+    background-color: var(--colore);
+}
+
+.contactInfoCards:hover .contactInfoCardsLogo{
+    color: white;
+}
+
+.contactInfoCards:hover{
+    scale: 1.05;
+}
+
+
+.contactInfoCardsDetails{
+    padding:0 10px;
+    overflow: hidden;
+}
+
+.contactInfoCardsDetailsTitle{
+    font-weight: 700;
+    font-size: 22px;
+    margin-top: 13px;
+}
+
+.contactInfoCardsDetailsContent{
+    color: gray;
+    font-size: 15px;
+    margin-top: 13px;
+}
+
+.contactFormAndSocial{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.contactSocial{
+    width: 340px;
+    padding: 5px;
+    margin: 15px;
+}
+
+.contactForm{
+    box-shadow: 0 0 4px rgba(126, 126, 126, 0.11);
+    width: 710px;
+    padding: 10px;
+    margin:15px ;
+}
+
+.contactFormLineOne{
+    display: flex;
+}
+
+.contactFormLine{
+    margin: 10px;
+}
+
+.contactFormleft{
+    width: 50%;
+    margin: 10px;
+}
+
+.contactFormRight{
+    width: 50%;
+    margin: 10px;
+}
+
+.ContactFormInput{
+    background-color: #F1F1F1;
+    border: 0;
+    padding: 15px 3% ;
+    width: 94%;
+    margin-top: 5px;
+}
+
+.ContactFormSubmit{
+    background-color: var(--colore);
+    color: white;
+    border: 0;
+    margin:10px;
+    width: 200px;
+    height: 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.contactFormLable{
+    font-size: 14px;
+}
+
+.contentSocial{
+    font-size: 22px;
+    display: flex;
+    width: fit-content;
+}
+
+.contentSocialLink{
+    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    width: fit-content;
+    color: gray;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.contentSocialLink:hover{
+    color: var(--colore);
+}
+
+.contentSocialLink:hover .contentSocialBorder{
+    border: 1px solid var(--colore);
+}
+
+.contentSocialBorder{
+    border: 1px solid gray;
+    display: flex;
+    width: fit-content;
+    padding: 7px;
+    border-radius: 50%;
+    transition: all .3s;
+}
+
+.contentSocialName{
+    margin: auto 10px;
+}
