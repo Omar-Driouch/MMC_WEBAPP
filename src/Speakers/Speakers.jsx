@@ -99,7 +99,6 @@ const Speakers = () => {
     window.scroll(0, 0);
     dispatch(fetchSpeakers());
   }, [dispatch]);
-  console.log(speakers);
   return (
     <SpeakersContainer>
       <SpeakersHeading>
