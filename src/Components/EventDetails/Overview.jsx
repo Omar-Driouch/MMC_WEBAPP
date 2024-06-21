@@ -20,10 +20,14 @@ const OverviewTitle = styled.div`
   }
 `;
 const Overview = ({ overview }) => {
+  if (typeof overview !== "string") {
+    console.error("Description must be a string");
+    return null;
+  }
   return (
     <OverviewContainer>
       <OverviewTitle>Overview</OverviewTitle>
-      <p className="max-w-[600px] mt-4">{parse(overview)}</p>
+      <p className="max-w-[600px] mt-4">{ parse(overview)}</p>
     </OverviewContainer>
   );
 };
