@@ -4,13 +4,13 @@ import { BASE_URL } from "../API/BaseUrl";
 export const fetchLatestEvents = createAsyncThunk(
   "event/fetchLatestEvents",
   async () => {
-    const response = await axios.get(`${BASE_URL}/Event`);
+    const response = await axios.get(`${BASE_URL}/event`);
     return response?.data;
   }
 );
 export const fetchEvents = createAsyncThunk("event/fetchEvents", async () => {
   // const response = await axios.get("https://retoolapi.dev/0QfQLg/events");
-  const response = await axios.get(`${BASE_URL}/Event`);
+  const response = await axios.get(`${BASE_URL}/event`);
   return response.data;
 });
 export const fetchEventById = createAsyncThunk(
@@ -53,7 +53,7 @@ export const fetchEventSpeakers = createAsyncThunk(
 const initialState = {
   latestEvents: [],
   events: [],
-  filtredEvents:[],
+  filtredEvents: [],
   status: "idle",
   event: [],
   error: null,
@@ -82,25 +82,27 @@ const eventSlice = createSlice({
         const eventDate = new Date(event?.startDate);
         return eventDate > currentDate;
       });
-      state.upcomingEvent = filtered?.sort((a,b)=>{
-        return a.startDate - b.startDate
-      })
+      state.upcomingEvent = filtered?.sort((a, b) => {
+        return a.startDate - b.startDate;
+      });
     },
-    filterByCity:(state,action)=>{
-      state.filtredEvents = state.events.filter((ev)=>ev.cityId === action.payload);
-    }
+    filterByCity: (state, action) => {
+      state.filtredEvents = state.events.filter(
+        (ev) => ev.cityId === action.payload
+      );
+    },
 
-  // sortEvents:(state,action)=>{
-  //   state.events = state.events.sort((a,b)=>{
-  //     if(action.payload.type === "1"){
-  //       const titleA = a.title.toLowerCase();
-  //       const titleB = b.title.toLowerCase();
-  //       if (titleA < titleB) return -1;
-  //       if (titleA > titleB) return 1;
-  //       return 0;
-  //     }
-  //   })
-  // }
+    // sortEvents:(state,action)=>{
+    //   state.events = state.events.sort((a,b)=>{
+    //     if(action.payload.type === "1"){
+    //       const titleA = a.title.toLowerCase();
+    //       const titleB = b.title.toLowerCase();
+    //       if (titleA < titleB) return -1;
+    //       if (titleA > titleB) return 1;
+    //       return 0;
+    //     }
+    //   })
+    // }
   },
   extraReducers: (builder) => {
     builder
@@ -174,6 +176,6 @@ const eventSlice = createSlice({
   },
 });
 
-export const { getUpEvent , filterByCity} = eventSlice.actions;
+export const { getUpEvent, filterByCity } = eventSlice.actions;
 
 export default eventSlice.reducer;
