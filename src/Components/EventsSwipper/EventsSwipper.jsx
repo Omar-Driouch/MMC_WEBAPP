@@ -74,8 +74,6 @@ const EventsSwipper = () => {
     dispatch(fetchEvents());
   }, [dispatch]);
 
-  console.log(events);
-
   return (
     <Hero className="slider-container relative">
       <Prev onClick={previous} />
