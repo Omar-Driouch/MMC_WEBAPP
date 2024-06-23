@@ -10,7 +10,7 @@ import parse from "html-react-parser";
 const { yellow } = colors;
 const Hero = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 95vh;
 `;
 const Btn = styled(Link)`
   margin-top: 20px;
@@ -91,7 +91,7 @@ const EventsSwipper = () => {
           <div className='min-h-screen relative after:absolute after:z-10 after:content[""] after:top-0 after:left-0 after:w-full after:h-full after:bg-[#373737c1]'>
             <img
               src={event?.imagePath}
-              className="w-full z-50 object-cover h-full"
+              className="w-full z-50 object-cover h-[100vh]"
               alt=""
             />
             <div className="info max-w-[1200px] z-50 my-2 absolute top-[200px] left-[170px]">
