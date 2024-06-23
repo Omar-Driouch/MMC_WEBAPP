@@ -10,7 +10,7 @@ import parse from "html-react-parser";
 const { yellow } = colors;
 const Hero = styled.div`
   width: 100%;
-  height: 95vh;
+  height: 100vh;
 `;
 const Btn = styled(Link)`
   margin-top: 20px;
