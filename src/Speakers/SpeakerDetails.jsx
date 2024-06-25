@@ -31,7 +31,7 @@ const SpeakerDetails = () => {
     <div className={Style.SpeakerDetailContainer} >
       <div className={Style.SpeakerHeading}>
         <div className={Style.Box}>
-          <div className={Style.HeadingTitle}><span>Speakers</span>  <span>intervenants</span>  <span>ناطق</span>  <span>ⵟⴰⴳⵢⴰⵏⵉⵏ</span></div>
+          <div className={Style.HeadingTitle}><span>Speaker</span>  <span>intervenant</span>  <span>ناطق</span>  <span>ⵟⴰⴳⵢⴰⵏⵉⵏ</span></div>
           <div className={Style.Path}>
                 <div className={Style.Span}><Link to="/">Home</Link></div>
                 <div className={Style.Span}><Link to="/speakers">speakers</Link></div>
@@ -39,6 +39,8 @@ const SpeakerDetails = () => {
           </div>
         </div>
       </div>
+
+      
       <div className={Style.Content}>
         {status === "loading" && <Loader/>}
         {status === "succeded" &&
@@ -48,34 +50,48 @@ const SpeakerDetails = () => {
             </div>
             <div className={Style.SpeakerInfo}>
               <div className={Style.SpeakerName}>{speaker?.firstname} {speaker?.lastname}</div>
-              <h2 className='p-2 bg-primary text-white my-3'>{speaker?.bio}</h2>
-              <p className='mb-3'>{speaker?.email}</p>
-              <p className='mb-3'>{speaker?.mvp && 'Microsoft MVP'}</p>
-              <p className='mb-3'>{speaker?.mct && 'Microsoft MCT'}</p>
-              <div className={Style.SpeakerMediaBox}>
-                {speaker?.speakerSocialMedia?.facebook !== null && (
-                  <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.facebook}>
-                    <FacebookIcon />
-                  </div>
-                )}
-                {speaker?.speakerSocialMedia?.instagram !== "" && (
-                  <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.instagram}>
-                    <InstagramIcon />
-                  </div>
-                )}
-                {speaker?.speakerSocialMedia?.x !== "" && (
-                  <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.x}>
-                    <XIcon />
-                  </div>
-                )}
-                {speaker?.speakerSocialMedia?.linkedin !== "" && (
-                  <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.linkedin}>
-                    <LinkedInIcon />
-                  </div>
-                )}
+              <p className={Style.SpeakerEmail}>{speaker?.email}</p>
+              <div className={Style.Line}></div>
+              <h2 className={Style.SpeakerBio}>
+                {speaker?.bio}
+                </h2>
+              <h2 className={Style.SpeakerDescription}>
+                {speaker?.description}
+                </h2>
+                <div className={Style.cardFooter}>
+                    <div className={Style.containerMicrosoft}>
+
+                    {speaker?.mvp && <p className={Style.Microsoft}>Microsoft MVP</p>}
+                    {speaker?.mct && <p className={Style.Microsoft}>Microsoft MCT</p>}
+
+                    </div>
+                    <div className={Style.Line}></div>
+
+                    <div className={Style.SpeakerMediaBox}>
+                      {speaker?.speakerSocialMedia?.facebook !== null && (
+                        <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.facebook}>
+                          <FacebookIcon />
+                        </div>
+                      )}
+                      {speaker?.speakerSocialMedia?.instagram !== "" && (
+                        <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.instagram}>
+                          <InstagramIcon />
+                        </div>
+                      )}
+                      {speaker?.speakerSocialMedia?.x !== "" && (
+                        <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.x}>
+                          <XIcon />
+                        </div>
+                      )}
+                      {speaker?.speakerSocialMedia?.linkedin !== "" && (
+                        <div className={Style.SpeakerMedia} href={speaker?.speakerSocialMedia?.linkedin}>
+                          <LinkedInIcon />
+                        </div>
+                      )}
+                </div>
               </div>
             </div>
-          </div>
+           </div>
         }
         <SpeakerEvents speakerEvents={speakerEvents} status={speakerEventsStatus} error={speakerEventsError}/>
       </div>

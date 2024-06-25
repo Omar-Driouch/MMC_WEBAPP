@@ -293,6 +293,8 @@ const EventDetails = () => {
       {status === "succeded" &&
       <Content>
         <EventTitle>{event?.title}</EventTitle>
+
+
         <Details>
           <Address>
             <PlaceIcon style={{ fontSize: "18px" }} />
@@ -308,13 +310,16 @@ const EventDetails = () => {
             <CalendarMonthRoundedIcon style={{ fontSize: "18px" }} />
             {event?.endDate}
           </Address> */}
+
           {eventProgramStatus === "loading" ? <span style={{color:"#333"}}>Loading ...</span>:
           <Address><VideocamIcon style={{ fontSize: "18px" }}/>{eventProgram?.title}</Address>
-        }
-        {eventThemeStatus === "loading" ? <span style={{color:"#333"}}>Loading ...</span>:
-          <Address>{eventTheme?.name}</Address>
-         }
+          }
+          {eventThemeStatus === "loading" ? <span style={{color:"#333"}}>Loading ...</span>:
+            <Address>{eventTheme?.name}</Address>
+          }
         </Details>
+
+
         <Box type='box1'>
           <LeftBox>
             <LeftImage src={event?.imagePath} />
