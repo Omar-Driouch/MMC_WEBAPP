@@ -13,6 +13,7 @@ import { Contact } from "../Components/Contact/Contact";
 import Jobintech from "../Components/Jobintech/Jobintech";
 import NotFound from "../Components/NotFound/NotFound";
 import SearchEvent from "../Components/SearchEvent/SearchEvent";
+import React from "react"
 
 export const router = createHashRouter([
   {

@@ -5,9 +5,6 @@ import { Link, useParams ,useNavigate } from "react-router-dom";
 import { addEventParticipant, addParticipant } from "../../features/citySlice";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import './Registration.css';
-import Loader from "../Loader/Loader";
-import Alert from '@mui/material/Alert';
-import Swal from 'sweetalert2';
 
 
 const RegistrationContainer = styled.div`
