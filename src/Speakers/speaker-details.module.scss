@@ -1,178 +1,201 @@
-.SpeakerDetailContainer{
-    .SpeakerHeading{
-        width:100%;
-        height:350px;
-        display:flex;
-        position:relative;
-        top:90px;
-        margin-bottom:120px;
-        left:0;
-        align-items:center;
-        justify-content:center;
-        background-image: linear-gradient(45deg, transparent 0%, transparent 51%,rgba(130, 130, 130,0.05) 51%, rgba(130, 130, 130,0.05) 71%,transparent 71%, transparent 100%),linear-gradient(0deg, transparent 0%, transparent 69%,rgba(130, 130, 130,0.05) 69%, rgba(130, 130, 130,0.05) 84%,transparent 84%, transparent 100%),linear-gradient(135deg, transparent 0%, transparent 37%,rgba(130, 130, 130,0.05) 37%, rgba(130, 130, 130,0.05) 73%,transparent 73%, transparent 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
-        .Box{
-            width:1200px;
-            display:flex;
-            flex-direction:column;
-            gap:30px;
-            justify-content:center;
-            align-items:center;
-            margin:0 auto;
-            .HeadingTitle{
-                font-size:30px;
-                font-weight:400;
-                color:#FFB703;
-                text-transform:capitalize;
-                display:flex;
-                align-items:flex-start;
-                flex-wrap:wrap;
-                justify-content:center;
-                gap:80px;
-                @media (max-width:1150px){
-                font-size:30px;
-                gap:40px;
-                }
-                @media (max-width:768px){
-                font-size:20px;
-                gap:20px;
-                }
-                @media (max-width:576px){
-                gap:20px;
-                font-size:14px;
-                }
-            }
-            .Path{
-                color:#aaabbb;
-                display:flex;
-                gap:30px;
-                text-transform:capitalize;
-                font-weight:300;
-                margin-bottom:20px;
-                .Span{
-                    position:relative;
-                    &:not(:last-child):before{
-                        position:absolute;
-                        content:"";
-                        background:transparent;
-                        width:8px;
-                        height:8px;
-                        border-top:3px solid #aaabbb;
-                        border-right:3px solid #aaabbb;
-                        transform:rotate(45deg) translateY(-50%);
-                        top:50%;
-                        right:-15px;
-                    }
-                }
-            }
+.SpeakerDetailContainer {
+  .SpeakerHeading {
+    width: 100%;
+    height: 350px;
+    display: flex;
+    position: relative;
+    top: 90px;
+    margin-bottom: 120px;
+    left: 0;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(
+        45deg,
+        transparent 0%,
+        transparent 51%,
+        rgba(130, 130, 130, 0.05) 51%,
+        rgba(130, 130, 130, 0.05) 71%,
+        transparent 71%,
+        transparent 100%
+      ),
+      linear-gradient(
+        0deg,
+        transparent 0%,
+        transparent 69%,
+        rgba(130, 130, 130, 0.05) 69%,
+        rgba(130, 130, 130, 0.05) 84%,
+        transparent 84%,
+        transparent 100%
+      ),
+      linear-gradient(
+        135deg,
+        transparent 0%,
+        transparent 37%,
+        rgba(130, 130, 130, 0.05) 37%,
+        rgba(130, 130, 130, 0.05) 73%,
+        transparent 73%,
+        transparent 100%
+      ),
+      linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
+    .Box {
+      width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+      .HeadingTitle {
+        font-size: 30px;
+        font-weight: 400;
+        color: #ffb703;
+        text-transform: capitalize;
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 80px;
+        @media (max-width: 1150px) {
+          font-size: 30px;
+          gap: 40px;
         }
+        @media (max-width: 768px) {
+          font-size: 20px;
+          gap: 20px;
+        }
+        @media (max-width: 576px) {
+          gap: 20px;
+          font-size: 14px;
+        }
+      }
+      .Path {
+        color: #aaabbb;
+        display: flex;
+        gap: 30px;
+        text-transform: capitalize;
+        font-weight: 300;
+        margin-bottom: 20px;
+        .Span {
+          position: relative;
+          &:not(:last-child):before {
+            position: absolute;
+            content: "";
+            background: transparent;
+            width: 8px;
+            height: 8px;
+            border-top: 3px solid #aaabbb;
+            border-right: 3px solid #aaabbb;
+            transform: rotate(45deg) translateY(-50%);
+            top: 50%;
+            right: -15px;
+          }
+        }
+      }
     }
-    .Content{
-        max-width:1200px;
-        margin:50px auto;
-        .SpeakerBox{
-            display:flex;
-            justify-content:center;
-            gap:20px;
-            margin:0 auto;
-            height:600px;
-            background-color: #f2f2f2;
-            padding: 30px;
-            
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 7px 0px;
-            .SpeakerImageBox{
-                flex:1;
-                background:#fecb22;
-            }
-            .SpeakerInfo{
-                flex:1;
-                background:#f2f2f2;
-                display:flex;
-                flex-direction:column;
-                align-items:center;
-                
+  }
+  .Content {
+    max-width: 1200px;
+    margin: 50px auto;
+    .SpeakerBox {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 0 auto;
+      height: 600px;
+      background-color: #f2f2f2;
+      padding: 30px;
+
+      box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 7px 0px;
+      .SpeakerImageBox {
+        flex: 1;
+        background: #fecb22;
+      }
+      .SpeakerInfo {
+        flex: 1;
+        background: #f2f2f2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         position: relative;
-                .SpeakerName{
-                    font-size:3em;
-                    font-weight: 800;
-                    font-family:"Ubuntu", sans-serif, serif !important;
-                }
-                p{
-                    font-size: 1.2em;
-                }
-                .SpeakerMediaBox{
-                    display: flex;
-                    gap: 20px;
-                    
-                    .SpeakerMedia{
-                        color: #ffb703;
-                        display: flex;
-                        width: 40px;
-                        height: 40px;
-                        justify-content: center;
-                        cursor: pointer;
-                        transition: 0.3s ease;
-                        align-items: center;
-                        border: 1px solid #ffb703;
-                        border-radius: 50%;
-                        &:hover {
-                            background: #ffb703;
-                            color: #fff;
-                        }
-                    }
-                }
-                .SpeakerEmail{
-                    color: #888787;
-                }
-                .SpeakerBio{
-                    font-weight: 600;
-                    color: #ffb703;
-                    font-size: larger;
-                }
-                .SpeakerDescription{
-                    font-size: 17px; 
-                    margin:30px 10px ;
-                    line-height: 2;
-// truncate
-                    display: -webkit-box;
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                    -webkit-line-clamp: 7;
-                    
-                }
-                .cardFooter{
-                    bottom: 0;
-                    position: absolute;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: column; /* Stack elements vertically */
-                    justify-content: center; /* Centers items vertically within the footer */
-                    align-items: center;    /* Centers items horizontally */
-                    text-align: center;  
-
-                    
-                }
-                .Line{
-                    height: 1px;
-                    width: 50%;
-                    background-color: #8887876f;
-                    margin: 20px;
-                }
-                .containerMicrosoft{
-                    display: flex;
-                    justify-content: center; 
-                }
-                .Microsoft{
-                    background-color: #FFB703; 
-                    color: white; 
-                    font-size: 16px;
-                    padding: 10px 20px; 
-                    margin: 0 5px; 
-                    border: none; 
-                    border-radius: 50px; 
-
-                }
-            }
+        .SpeakerName {
+          font-size: 3em;
+          font-weight: 800;
+          font-family: "Ubuntu", sans-serif, serif !important;
         }
+        p {
+          font-size: 1.2em;
+        }
+        .SpeakerMediaBox {
+          display: flex;
+          gap: 20px;
+
+          .SpeakerMedia {
+            color: #ffb703;
+            display: flex;
+            width: 40px;
+            height: 40px;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s ease;
+            align-items: center;
+            border: 1px solid #ffb703;
+            border-radius: 50%;
+            &:hover {
+              background: #ffb703;
+              color: #fff;
+            }
+          }
+        }
+        .SpeakerEmail {
+          color: #888787;
+        }
+        .SpeakerBio {
+          font-weight: 600;
+          color: #ffb703;
+          font-size: larger;
+        }
+        .SpeakerDescription {
+          font-size: 17px;
+          margin: 30px 10px;
+          line-height: 2;
+          // truncate
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          -webkit-line-clamp: 5;
+        }
+        .cardFooter {
+          bottom: 0;
+          position: absolute;
+          width: 100%;
+          display: flex;
+          flex-direction: column; /* Stack elements vertically */
+          justify-content: center; /* Centers items vertically within the footer */
+          align-items: center; /* Centers items horizontally */
+          text-align: center;
+        }
+        .Line {
+          height: 1px;
+          width: 50%;
+          background-color: #8887876f;
+          margin: 20px;
+        }
+        .containerMicrosoft {
+          display: flex;
+          justify-content: center;
+        }
+        .Microsoft {
+          background-color: #ffb703;
+          color: white;
+          font-size: 16px;
+          padding: 10px 20px;
+          margin: 0 5px;
+          border: none;
+          border-radius: 50px;
+        }
+      }
     }
+  }
 }

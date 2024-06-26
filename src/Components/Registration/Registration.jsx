@@ -115,7 +115,6 @@ const Registration = () => {
       });
     });
   };
-  console.log(data);
 
   return (
     <RegistrationContainer>
