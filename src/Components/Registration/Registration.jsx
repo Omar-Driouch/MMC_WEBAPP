@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useNavigate } from "react-router-dom";
 import { addEventParticipant, addParticipant } from "../../features/citySlice";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import './Registration.css';
+import Loader from "../Loader/Loader";
+import Alert from '@mui/material/Alert';
+import Swal from 'sweetalert2';
+
+
 const RegistrationContainer = styled.div`
   padding: 120px 0;
   width: 100%;
@@ -86,9 +92,24 @@ const SuccessAlertContainer = styled.div`
 `;
 const Registration = () => {
   const [show, setShow] = useState(true);
+  const [loading,setLoading] = useState(false)
   const [data, setData] = useState({
+    firstName:'',
+    lastName:'',
+    email:'',
+    phone:'',
+    gender:'',
+    city:'',
+
     // id:"2f572af0-703d-47ed-5e81-08dc52698209"
   });
+  const [errors, setErrors] = useState({})
+  const handleChange = (e) => {
+    const{name, value }= e.target;
+    setData({ 
+      ...data, [name]: value 
+    });
+  };
   const { eventId } = useParams();
   const dispatch = useDispatch();
   // const participantId = useSelector(state=>state.city.participantId);
@@ -97,12 +118,44 @@ const Registration = () => {
     // dispatch(fetchEventById(parseInt(eventId)));
   }, []);
 
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-  };
+
+  
   const handleSubmit = (e) => {
-    window.scroll(0, 0);
+    // setShow(false);
+    setLoading(true);
+    // window.scroll(0, 0);
     e.preventDefault();
+    const validationErrors = {}
+    if(!data.firstName.trim()) {
+      validationErrors.firstName = "firstName is required"
+    }
+    if(!data.lastName.trim()) {
+      validationErrors.lastName = "lastNameis required"
+    }
+    if(!data.email.trim()) {
+      validationErrors.email = "email is required"
+    }else if (!/\S+@\S+\.\S+/.test(data.email)){
+      validationErrors.email = "email is not valid"
+    }
+    if(!data.phone.trim()) {
+      validationErrors.phone = "phone is required"
+    }else if(data.phone.length < 10){
+      validationErrors.phone = "phone should be at least 10 number"
+    }
+    if(!data.gender.trim()) {
+      validationErrors.gender = "gender is required"
+    }
+    if(!data.city.trim()) {
+      validationErrors.city = "city is required"
+    }
+
+    setErrors(validationErrors)
+
+    //   const navigate = useNavigate();
+
+    // if(Object.keys(validationErrors).length === 0){
+    //   navigate('/events');
+    // }
     dispatch(addParticipant(data)).then((result) => {
       console.log(result.payload);
       dispatch(
@@ -112,16 +165,25 @@ const Registration = () => {
         })
       ).then((res) => {
         setShow(false);
-      });
-    });
-  };
-  console.log(data);
+      });
+    });
+}
+  
+  // console.log(data);
+  // const handeleClick =() =>{
+  //   Swal.fire(
+  //     'The Internet?',
+  //     'That thing is still around?',
+  //     'question'
+  //   )
+  // }
 
   return (
     <RegistrationContainer>
+      
       {show && (
         <Content>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} >
             <Heading>Registration Form</Heading>
             <FormGroup class="form-group">
               <FormLabel htmlFor="firstName">First Name</FormLabel>
@@ -131,6 +193,8 @@ const Registration = () => {
                 type="text"
                 name="firstName"
               />
+            {errors.firstName && <span id="error">{errors.firstName}</span>}
+
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="lastName">Last Name</FormLabel>
@@ -140,6 +204,7 @@ const Registration = () => {
                 type="text"
                 name="lastName"
               />
+            {errors.lastName && <span id="error" >{errors.lastName}</span>}
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="email">Email</FormLabel>
@@ -149,6 +214,8 @@ const Registration = () => {
                 type="email"
                 name="email"
               />
+              {errors.email && <span id="error">{errors.email}</span>}
+
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="phone">Phone</FormLabel>
@@ -158,16 +225,23 @@ const Registration = () => {
                 type="text"
                 name="phone"
               />
+              {errors.phone && <span id="error" >{errors.phone}</span>}
+
             </FormGroup>
             <FormGroup class="form-group">
-              <FormLabel htmlFor="gender">Gender</FormLabel>
-              <FormSelect name="gender" value="" onChange={handleChange}>
-                <option value="Chose gender" selected>
+              <FormLabel  htmlFor="gender">Gender</FormLabel>
+                <div className="gender">
+                    <div><input type='radio' name='gender' value='male'  onChange={handleChange} />Male</div>
+                    <input type='radio' name='gender' value='female'  onChange={handleChange} />Female
+                </div>
+              {/* <FormSelect name="gender" value="" onChange={handleChange}> */}
+                {/* <option value="Chose gender" selected>
                   Chose gender
                 </option>
                 <option value="Men">Men</option>
-                <option value="Women">Women</option>
-              </FormSelect>
+                <option value="Women">Women</option> */}
+              {/* </FormSelect> */}
+              {errors.gender && <span id="error">{errors.gender}</span>}
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="City">City</FormLabel>
@@ -177,13 +251,15 @@ const Registration = () => {
                 type="text"
                 name="city"
               />
+                {errors.city && <span id="error" >{errors.city}</span>}
             </FormGroup>
             <FormGroup class="form-group">
-              <SaveButton type="submit">Save</SaveButton>
+              <SaveButton type="submit" >Save</SaveButton>
             </FormGroup>
           </Form>
         </Content>
       )}
+
       <SuccessAlertContainer var={show}>
         <CheckCircleIcon style={{ color: "green", fontSize: "120px" }} />
         <h1 style={{ fontSize: "30px", fontWeight: "500" }}>Success</h1>
