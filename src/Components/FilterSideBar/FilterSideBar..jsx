@@ -8,7 +8,7 @@ import { colors } from '../../theme';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCities } from '../../features/citySlice';
 import { fetchEvents, filterByCity } from '../../features/eventSlice';
-
+import React from 'react';
 const {yellow} = colors;
 const FormGroup = styled.div`
   margin-bottom:20px;

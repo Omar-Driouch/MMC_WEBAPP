@@ -17,7 +17,7 @@ import { RouterProvider } from 'react-router-dom'
 // import Registration from './Components/Registration/Registration'
 // import SpeakerDetails from './Speakers/SpeakerDetails'
 import { router } from './router/router'
-import { useEffect } from 'react'
+import React from 'react'
 function App() {
     // useEffect(()=>{
     //   window.scroll(0,0);

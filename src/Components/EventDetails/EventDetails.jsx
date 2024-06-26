@@ -18,7 +18,7 @@ import { fetchThemeById } from "../../features/themeSlice";
 import Overview from "./Overview";
 import EventSession from "./EventSession";
 import { dateFormat } from "../../Helpers/helpers";
-
+import React from "react";
 const EventDetailsContainer = styled.div`
 //  padding:50px 0;
 `;
