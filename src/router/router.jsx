@@ -1,4 +1,5 @@
 import { createHashRouter } from "react-router-dom";
+import React from "react";
 import Home from "../Components/Home/Home";
 import Layout from "../Layout/Layout";
 import Events from "../Components/Events/Events";
@@ -13,7 +14,6 @@ import { Contact } from "../Components/Contact/Contact";
 import Jobintech from "../Components/Jobintech/Jobintech";
 import NotFound from "../Components/NotFound/NotFound";
 import SearchEvent from "../Components/SearchEvent/SearchEvent";
-import React from "react"
 
 export const router = createHashRouter([
   {

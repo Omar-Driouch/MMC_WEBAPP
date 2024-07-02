@@ -139,22 +139,31 @@ const Speaker = ({ speaker }) => {
      </SpeakerBiography> */}
       <SpeakerMediaBox>
         {speaker?.speakerSocialMedia?.facebook !== "" && (
-          <SpeakerMedia href={speaker?.speakerSocialMedia?.facebook}>
+          <SpeakerMedia
+            href={speaker?.speakerSocialMedia?.facebook}
+            target="_blanck"
+          >
             <FacebookIcon />
           </SpeakerMedia>
         )}
         {speaker?.speakerSocialMedia?.instagram !== "" && (
-          <SpeakerMedia href={speaker?.speakerSocialMedia?.instagram}>
+          <SpeakerMedia
+            href={speaker?.speakerSocialMedia?.instagram}
+            target="_blanck"
+          >
             <InstagramIcon />
           </SpeakerMedia>
         )}
         {speaker?.speakerSocialMedia?.x !== "" && (
-          <SpeakerMedia href={speaker?.speakerSocialMedia?.x}>
+          <SpeakerMedia href={speaker?.speakerSocialMedia?.x} target="_blanck">
             <XIcon />
           </SpeakerMedia>
         )}
         {speaker?.speakerSocialMedia?.linkedin !== "" && (
-          <SpeakerMedia href={speaker?.speakerSocialMedia?.linkedin}>
+          <SpeakerMedia
+            href={speaker?.speakerSocialMedia?.linkedin}
+            target="_blanck"
+          >
             <LinkedInIcon />
           </SpeakerMedia>
         )}

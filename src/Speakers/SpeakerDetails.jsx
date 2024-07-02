@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import styled from "styled-components";
-import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
 // import img from "../assets/said_wahid.png"
 import { fetchSpeakerById, fetchSpeakerEvents } from "../features/speakerSlice";
 import SpeakerEvents from "./SpeakerEvents";
@@ -13,6 +10,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 import Style from "./speaker-details.module.scss";
 import parse from "html-react-parser";
+import React, { useEffect } from "react";
 
 const SpeakerDetails = () => {
   const { id } = useParams();
@@ -91,6 +89,7 @@ const SpeakerDetails = () => {
                     <div
                       className={Style.SpeakerMedia}
                       href={speaker?.speakerSocialMedia?.facebook}
+                      target="_blanck"
                     >
                       <FacebookIcon />
                     </div>
@@ -99,6 +98,7 @@ const SpeakerDetails = () => {
                     <div
                       className={Style.SpeakerMedia}
                       href={speaker?.speakerSocialMedia?.instagram}
+                      target="_blanck"
                     >
                       <InstagramIcon />
                     </div>
@@ -107,6 +107,7 @@ const SpeakerDetails = () => {
                     <div
                       className={Style.SpeakerMedia}
                       href={speaker?.speakerSocialMedia?.x}
+                      target="_blanck"
                     >
                       <XIcon />
                     </div>
@@ -115,6 +116,7 @@ const SpeakerDetails = () => {
                     <div
                       className={Style.SpeakerMedia}
                       href={speaker?.speakerSocialMedia?.linkedin}
+                      target="_blanck"
                     >
                       <LinkedInIcon />
                     </div>

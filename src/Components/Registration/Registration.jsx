@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams ,useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import { addEventParticipant, addParticipant } from "../../features/citySlice";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
-import './Registration.css';
-
+import "./Registration.css";
 
 const RegistrationContainer = styled.div`
   padding: 120px 0;
@@ -89,22 +88,23 @@ const SuccessAlertContainer = styled.div`
 `;
 const Registration = () => {
   const [show, setShow] = useState(true);
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [data, setData] = useState({
-    firstName:'',
-    lastName:'',
-    email:'',
-    phone:'',
-    gender:'',
-    city:'',
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    gender: "",
+    city: "",
 
     // id:"2f572af0-703d-47ed-5e81-08dc52698209"
   });
-  const [errors, setErrors] = useState({})
+  const [errors, setErrors] = useState({});
   const handleChange = (e) => {
-    const{name, value }= e.target;
-    setData({ 
-      ...data, [name]: value 
+    const { name, value } = e.target;
+    setData({
+      ...data,
+      [name]: value,
     });
   };
   const { eventId } = useParams();
@@ -115,63 +115,59 @@ const Registration = () => {
     // dispatch(fetchEventById(parseInt(eventId)));
   }, []);
 
-
-  
   const handleSubmit = (e) => {
     // setShow(false);
     setLoading(true);
     // window.scroll(0, 0);
     e.preventDefault();
-    const validationErrors = {}
-    if(!data.firstName.trim()) {
-      validationErrors.firstName = "firstName is required"
+    const validationErrors = {};
+    if (!data.firstName.trim()) {
+      validationErrors.firstName = "firstName is required";
     }
-    if(!data.lastName.trim()) {
-      validationErrors.lastName = "lastNameis required"
+    if (!data.lastName.trim()) {
+      validationErrors.lastName = "lastNameis required";
     }
-    if(!data.email.trim()) {
-      validationErrors.email = "email is required"
-    }else if (!/\S+@\S+\.\S+/.test(data.email)){
-      validationErrors.email = "email is not valid"
+    if (!data.email.trim()) {
+      validationErrors.email = "email is required";
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+      validationErrors.email = "email is not valid";
     }
-    if(!data.phone.trim()) {
-      validationErrors.phone = "phone is required"
-    }else if(data.phone.length < 10){
-      validationErrors.phone = "phone should be at least 10 number"
+    if (!data.phone.trim()) {
+      validationErrors.phone = "phone is required";
+    } else if (data.phone.length < 10) {
+      validationErrors.phone = "phone should be at least 10 number";
     }
-    if(!data.gender.trim()) {
-      validationErrors.gender = "gender is required"
+    if (!data.gender.trim()) {
+      validationErrors.gender = "gender is required";
     }
-    if(!data.city.trim()) {
-      validationErrors.city = "city is required"
+    if (!data.city.trim()) {
+      validationErrors.city = "city is required";
     }
 
-    setErrors(validationErrors)
+    setErrors(validationErrors);
 
     //   const navigate = useNavigate();
 
-    // if(Object.keys(validationErrors).length === 0){
-    //   navigate('/events');
-    // }
-    dispatch(addParticipant(data)).then((result) => {
-      console.log(result.payload);
-      dispatch(
-        addEventParticipant({
-          id_Participant: result.payload,
-          id_Event: eventId,
-        })
-      ).then((res) => {
-        setShow(false);
+    if (Object.keys(validationErrors).length === 0) {
+      dispatch(addParticipant(data)).then((result) => {
+        console.log(result.payload);
+        dispatch(
+          addEventParticipant({
+            id_Participant: result.payload,
+            id_Event: eventId,
+          })
+        ).then((res) => {
+          setShow(false);
+        });
       });
-    });
+    }
   };
 
   return (
     <RegistrationContainer>
-      
       {show && (
         <Content>
-          <Form onSubmit={handleSubmit} >
+          <Form onSubmit={handleSubmit}>
             <Heading>Registration Form</Heading>
             <FormGroup class="form-group">
               <FormLabel htmlFor="firstName">First Name</FormLabel>
@@ -181,8 +177,7 @@ const Registration = () => {
                 type="text"
                 name="firstName"
               />
-            {errors.firstName && <span id="error">{errors.firstName}</span>}
-
+              {errors.firstName && <span id="error">{errors.firstName}</span>}
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="lastName">Last Name</FormLabel>
@@ -192,7 +187,7 @@ const Registration = () => {
                 type="text"
                 name="lastName"
               />
-            {errors.lastName && <span id="error" >{errors.lastName}</span>}
+              {errors.lastName && <span id="error">{errors.lastName}</span>}
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="email">Email</FormLabel>
@@ -203,7 +198,6 @@ const Registration = () => {
                 name="email"
               />
               {errors.email && <span id="error">{errors.email}</span>}
-
             </FormGroup>
             <FormGroup class="form-group">
               <FormLabel htmlFor="phone">Phone</FormLabel>
@@ -213,17 +207,30 @@ const Registration = () => {
                 type="text"
                 name="phone"
               />
-              {errors.phone && <span id="error" >{errors.phone}</span>}
-
+              {errors.phone && <span id="error">{errors.phone}</span>}
             </FormGroup>
             <FormGroup class="form-group">
-              <FormLabel  htmlFor="gender">Gender</FormLabel>
-                <div className="gender">
-                    <div><input type='radio' name='gender' value='male'  onChange={handleChange} />Male</div>
-                    <input type='radio' name='gender' value='female'  onChange={handleChange} />Female
+              <FormLabel htmlFor="gender">Gender</FormLabel>
+              <div className="gender">
+                <div>
+                  <input
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    onChange={handleChange}
+                  />
+                  Male
                 </div>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="female"
+                  onChange={handleChange}
+                />
+                Female
+              </div>
               {/* <FormSelect name="gender" value="" onChange={handleChange}> */}
-                {/* <option value="Chose gender" selected>
+              {/* <option value="Chose gender" selected>
                   Chose gender
                 </option>
                 <option value="Men">Men</option>
@@ -239,10 +246,10 @@ const Registration = () => {
                 type="text"
                 name="city"
               />
-                {errors.city && <span id="error" >{errors.city}</span>}
+              {errors.city && <span id="error">{errors.city}</span>}
             </FormGroup>
             <FormGroup class="form-group">
-              <SaveButton type="submit" >Save</SaveButton>
+              <SaveButton type="submit">Save</SaveButton>
             </FormGroup>
           </Form>
         </Content>
